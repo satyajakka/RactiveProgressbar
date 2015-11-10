@@ -2,27 +2,37 @@ h1{
 text-align: center;
 }
 
+body{
+	background-color: #ccc;
+}
+
 /******* CSS for container *******/
 #container {
     margin: auto;
     position: relative;
-	width:30%;
+    width:30%;
     padding: 10px;
+    box-shadow: 3px 3px 5px #333;
+    background-color: #fff;
+    border-radius:6px;
+    padding-left:80px;
 }
 
 /******* CSS for Progress Bars *******/
 .progress-bar {
   position: absolute;
-  width:300px; 
+  width:335px; 
   height: 20px;
-  border: 2px solid #C0C0C0;
+  border: 1px solid #e1e2e3;
   padding-bottom: 23px;
+  border-radius:5px;
 }
 .progress-bar-fill {
   position: relative;
   height: 20px;
-  background-color: #00FFFF;
+  background-color: #c13636;
   padding-bottom: 25px;
+  border-radius:5px 0 0 5px;
 }
     
 .progress-bar-fill-red {
@@ -33,9 +43,16 @@ text-align: center;
 }
 .progress-label {
   position: relative;
-  top: 3px;
-  left: 5px;
+  top: 14px;
+  left: 6px;
   color: #000;
+}
+
+.select-input {
+	width:160px;
+	height:40px;
+	margin:0;
+	
 }
 
 input[type=range] {
@@ -51,16 +68,22 @@ input[type=range] {
 
 /******* Action div CSS *******/
 #actionDiv{
-	padding-top: 10px;
+	padding-top: 20px;
 }
 
 #actionDiv button{
 	padding-right:5px;
-	background-color: purple;
+	background-color: royalblue;
 	margin-right: 5px;
 	color: yellow;
 	line-height: 20px;
+	border: none;
+	color:#fff;
+	height:35px;
+	border-radius:5px;
 }
 /******* End of Action div CSS *******/
+
+
 
 
