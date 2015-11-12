@@ -1,5 +1,7 @@
 h1{
 text-align: center;
+font-size: 24px;
+font-family:sans-serif;
 }
 
 body{
@@ -10,18 +12,18 @@ body{
 #container {
     margin: auto;
     position: relative;
-    width:30%;
+	width:320px;
     padding: 10px;
     box-shadow: 3px 3px 5px #333;
     background-color: #fff;
     border-radius:6px;
-    padding-left:80px;
+    
 }
 
 /******* CSS for Progress Bars *******/
 .progress-bar {
   position: absolute;
-  width:335px; 
+  width:315px; 
   height: 20px;
   border: 1px solid #e1e2e3;
   padding-bottom: 23px;
@@ -49,7 +51,7 @@ body{
 }
 
 .select-input {
-	width:160px;
+	width:138px;
 	height:40px;
 	margin:0;
 	
@@ -83,6 +85,9 @@ input[type=range] {
 	border-radius:5px;
 }
 /******* End of Action div CSS *******/
+
+
+
 
 
 
