@@ -4,6 +4,7 @@
 <head>
 <title>Multiple Progress Bars</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script
 	src='https://cdnjs.cloudflare.com/ajax/libs/ractive/0.7.3/ractive-legacy.js'></script>
 <script>
@@ -11,9 +12,19 @@
 		document.write(unescape("%3Cscript src='js/ractive.js' type='text/javascript'%3E%3C/script%3E"));
 	}
 </script>
+
+
+<!-- <script src='http://code.jquery.com/jquery-2.1.4.min.js'></script> -->
+<script src='js/src.js'></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
 <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body>
+
+<body align=center onload="Ractive_Task.onReady()">
+
+	<div class="main w3-col m8 l8">
 	<div class="form">
 		<div class="header">
 			<h2>Multiple Progress Bars</h2>
@@ -21,7 +32,9 @@
 		<div id='container' class="container"></div>
 	</div>
 	<br />
-	<script id="template" type='text/ractive'>
+ <div>	
+	<script
+id="template" type='text/ractive'>
     {{#each progressbars}}
          <br>
 	{{#if value < 1 }}
@@ -32,21 +45,23 @@
             </div>
         {{/if}}	
         {{#if value < 100 && value > 1}}
-            <div class="progress-bar-fill" style="width: {{4*value/4}}%">
+            <div class="progress-bar-fill" style="width: {{value}}%">
 				<div class="progress-bar">
 				 </div>
                 <span class="progress-label">{{Math.floor(value)}}%</span>
             </div>
         {{/if}}
         {{#if value>=100}}
-            <div class="progress-bar-fill-red" style="width: 252px">
+            <div class="progress-bar-fill-red">
 			<div class="progress-bar">
 			 </div>
                 <span class="progress-label">{{(Math.floor(value))}}%</span>
             </div>
         {{/if}}
     {{/each}}
-	<div id="actionDiv" class="actionDiv">
+
+	
+	<div id="actionDiv w3-row" class="actionDiv">
     <select class="select-input" value='{{selectedProgress}}'>
         <option selected disabled>Select ProgressBar</option>
         {{#each progressbars :index}}
@@ -54,45 +69,16 @@
         {{/each}}
     </select>
     {{#each amounts}}
-        <button disabled='{{selectedProgress == null}}' on-click='adjust(this)'>{{this > 0 ? '+' : ''}}{{this}}</button>
+        <button disabled='{{selectedProgress == null || flag==0}}' on-click='adjust(this)'>{{this > 0 ? '+' : ''}}{{this}}</button>
     {{/each}}
 	</div>
-</script>
-	<!--End of Progress  Template  -->
-	<!-- Ractive Script -->
-	<script>
-		var progressbars = [];
-		var ractive = new Ractive({
-			el : "#container", //Target for output to display 
-			template : '#template',//Data to display in output
-			data : {
-				progressbars : [ {
-					name : 'ProgressOne',
-					value : 20
-				}, {
-					name : 'ProgressTwo',
-					value : 35
-				}, {
-					name : 'ProgressThree',
-					value : 15
-				} ],
-				amounts : [ +25, +10, -10, -25 ]
-			},
-			//This function picks the progress bar dynamically
-			adjust : function(d) {
-				var selected = this.get('selectedProgress');
-				if (selected == null)
-					return;
-				var keypath = 'progressbars[' + selected + '].value';
-				var keypath_value = this.get(String(keypath));
 
-				if (keypath_value < 0) {
-					keypath_value = 0;
-				}
-				//Animates the change
-				ractive.animate(keypath, keypath_value + d);
-			}
-		});
-	</script>
+</script>
+</div>	
+ 
+</div>
+
+	<!--End of Progress  Template  -->
+
 </body>
 </html>
